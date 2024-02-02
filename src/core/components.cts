@@ -63,11 +63,12 @@ export type ArgsOfComponent<C> = C extends Component<infer Args> ? Args : never
 
 export type ArgsFromFactory<F> = F extends ComponentFactory<any, infer Instance> ? ArgsOfComponent<Instance> : never
 
-export type ArgsOfBindings<C> = C extends ConfigurableComponentBindings<infer Args extends unknown[]>
-  ? Args
-  : C extends BasicComponentBindings
-  ? []
-  : never
+export type ArgsOfBindings<C> =
+  C extends ConfigurableComponentBindings<infer Args extends unknown[]>
+    ? Args
+    : C extends BasicComponentBindings
+      ? []
+      : never
 
 export type ComponentSetupContext = ReturnType<typeof makeSetupContext>
 
