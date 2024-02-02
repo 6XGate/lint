@@ -1,6 +1,6 @@
 {
   "name": "lint",
-  "version": "3.0.1",
+  "version": "3.0.2",
   "main": "dist/index.cjs",
   "author": "Matthew Holder <sixxgate@hotmail.com>",
   "license": "MIT",
