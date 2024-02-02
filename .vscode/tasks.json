@@ -1,0 +1,22 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "npm",
+			"script": "build",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+			"label": "npm: build",
+			"detail": "tsc --build"
+		},
+		{
+			"type": "npm",
+			"script": "rebuild",
+      "group": "build",
+			"label": "npm: rebuild",
+			"detail": "npm clean && npm build"
+		}
+	]
+}
