@@ -57,13 +57,6 @@ function getStandardTypeScriptRules(): Linter.RulesRecord {
         allowAny: false
       }
     ],
-    // A lot of situations where rest arguments are used need any, especially when dealing with constratins.
-    '@typescript-eslint/no-explicit-any': 'off' /* [
-      'off',
-      {
-        ignoreRestArgs: true
-      }
-    ], */,
     // Causes too many issues with callback parameters,
     // so this will be a rare diviation from strict.
     '@typescript-eslint/unified-signatures': 'off',
@@ -143,10 +136,17 @@ const TypeScriptComponent = Object.assign(
     function postConfigure(config: Linter.Config) {
       config.rules = {
         ...config.rules,
-        // If it is explicitly defined, it is likely required,
-        // there are some situations where any is required
-        // no if-and-or-buts.
-        '@typescript-eslint/no-explicit-any': 'warn',
+        // If it is explicitly defined, it is likely required, there
+        // are some situations where any is required no if-
+        // and-or-buts. Specifically when dealing
+        // with rest arguments in generic
+        // constratints.
+        '@typescript-eslint/no-explicit-any': [
+          'warn',
+          {
+            ignoreRestArgs: true
+          }
+        ],
         // TypeScript handles this, but import also seems to
         // have some issues with the complexities of
         // TypeScript module resolution, even
