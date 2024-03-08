@@ -58,12 +58,12 @@ function getStandardTypeScriptRules(): Linter.RulesRecord {
       }
     ],
     // A lot of situations where rest arguments are used need any, especially when dealing with constratins.
-    '@typescript-eslint/no-explicit-any': [
+    '@typescript-eslint/no-explicit-any': 'off' /* [
       'off',
       {
         ignoreRestArgs: true
       }
-    ],
+    ], */,
     // Causes too many issues with callback parameters,
     // so this will be a rare diviation from strict.
     '@typescript-eslint/unified-signatures': 'off',
