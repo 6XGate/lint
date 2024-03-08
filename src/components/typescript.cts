@@ -59,7 +59,7 @@ function getStandardTypeScriptRules(): Linter.RulesRecord {
     ],
     // A lot of situations where rest arguments are used need any, especially when dealing with constratins.
     '@typescript-eslint/no-explicit-any': [
-      'warn',
+      'off',
       {
         ignoreRestArgs: true
       }
