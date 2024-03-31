@@ -33,6 +33,16 @@ function getStandardTypeScriptRules(): Linter.RulesRecord {
     '@typescript-eslint/promise-function-async': 'error',
     '@typescript-eslint/require-array-sort-compare': 'error',
     '@typescript-eslint/return-await': ['error', 'always'],
+    // The recent strict defaults are too strict to be useful.
+    '@typescript-eslint/restrict-template-expressions': [
+      'error',
+      {
+        allowBoolean: true,
+        allowNullish: true,
+        allowNumber: true,
+        allowRegExp: true
+      }
+    ],
     // The default are too strict and not useful.
     '@typescript-eslint/no-use-before-define': [
       'error',
