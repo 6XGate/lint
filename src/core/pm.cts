@@ -81,11 +81,12 @@ export function definePackageManager<Bindings extends PackageManagerBindings>(
 
       const detectByExecutable = () => {
         const executable = process.env['npm_execpath']
-        logger.debug(`Looking for "${name}" package manager by npm npm_execpath: is ${executable}`)
         if (executable == null) {
+          logger.debug(`Looking for "${name}" package manager by npm npm_execpath: not found`)
           return false
         }
 
+        logger.debug(`Looking for "${name}" package manager by npm npm_execpath: is ${executable}`)
         for (const possible of executables) {
           if (executable.endsWith(possible)) {
             return true

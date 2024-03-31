@@ -1,5 +1,5 @@
 {
-  "extends": "@tsconfig/node16",
+  "extends": "@tsconfig/node18",
   "include": ["src/**/*.ts", "src/**/*.cts", "src/**/*.mts"],
   "compilerOptions": {
     /* Visit https://aka.ms/tsconfig to read more about this file */
