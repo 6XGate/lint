@@ -1,3 +1,4 @@
+import { shake } from 'radash'
 import { shared } from '../helpers/system.cjs'
 import useFlatCompat from './compat.cjs'
 import type { Linter } from 'eslint'
@@ -37,7 +38,7 @@ const useLegacyConfig = shared(() => {
 
     return legacy
       .extends(...names)
-      .map(config => config.rules ?? null)
+      .map(config => (config.rules != null ? shake(config.rules) : null))
       .reduce<Linter.RulesRecord>((prev, rules) => ({ ...prev, ...rules }), {})
   }
 
