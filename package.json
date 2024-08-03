@@ -1,6 +1,6 @@
 {
   "name": "@sixxgate/lint",
-  "version": "3.1.0",
+  "version": "3.1.1",
   "packageManager": "yarn@1.22.22",
   "main": "dist/index.cjs",
   "author": "Matthew Holder <sixxgate@hotmail.com>",
@@ -8,6 +8,9 @@
   "description": "Opinionated ESLint configuration builder inspired Standard",
   "engines": {
     "node": ">=18"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "scripts": {
     "rebuild": "run-s clean build",
