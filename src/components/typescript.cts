@@ -70,6 +70,8 @@ function getStandardTypeScriptRules(): Linter.RulesRecord {
     // Causes too many issues with callback parameters,
     // so this will be a rare diviation from strict.
     '@typescript-eslint/unified-signatures': 'off',
+    // Prevents really common usecases for generics.
+    '@typescript-eslint/no-unnecessary-type-parameters': 'off',
     // Handled by and conflicts with prettier.
     '@typescript-eslint/no-extra-semi': 'off'
   }
@@ -131,14 +133,23 @@ const TypeScriptComponent = Object.assign(
       }
 
       config.overrides = config.overrides ?? []
-      config.overrides.push({
-        files: ['**/*.js', '**/*.cjs', '**/*.mjs', '**/*.jsx'],
-        extends: ['plugin:@typescript-eslint/disable-type-checked'],
-        rules: {
-          // This is transpiled by TypeScript and not support in JavaScript.
-          '@typescript-eslint/no-var-requires': 'off'
+      config.overrides.push(
+        {
+          files: ['**/*.js', '**/*.cjs', '**/*.mjs', '**/*.jsx'],
+          extends: ['plugin:@typescript-eslint/disable-type-checked'],
+          rules: {
+            // This is transpiled by TypeScript and not support in JavaScript.
+            '@typescript-eslint/no-var-requires': 'off'
+          }
+        },
+        {
+          files: ['**/*.cjs', '**/*.cts'],
+          rules: {
+            // CommonJS modules should not be barred from this.
+            '@typescript-eslint/no-require-imports': 'off'
+          }
         }
-      })
+      )
 
       return config
     }
