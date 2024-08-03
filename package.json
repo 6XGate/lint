@@ -1,6 +1,6 @@
 {
   "name": "@sixxgate/lint",
-  "version": "3.1.1",
+  "version": "3.1.2",
   "packageManager": "yarn@1.22.22",
   "main": "dist/index.cjs",
   "author": "Matthew Holder <sixxgate@hotmail.com>",

@@ -66,6 +66,15 @@ const NodeComponent = defineComponent('node', ({ getComponent }) => {
       ...getStandardNodeRules()
     }
 
+    config.overrides = config.overrides ?? []
+    config.overrides.push({
+      files: ['**/.eslintrc.*'],
+      rules: {
+        // ESLint will use unpublished modules.
+        'n/no-unpublished-require': 'off'
+      }
+    })
+
     return config
   }
 
