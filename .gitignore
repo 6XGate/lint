@@ -1,6 +1,12 @@
+# Package manager outputs
 node_modules/
-dist/
 npm-shrinkwrap.json
 package-lock.json
 pnpm-lock.yaml
 yarn.lock
+
+# Build outputs
+dist/
+
+# Test packages
+**/*.tgz

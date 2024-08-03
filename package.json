@@ -1,6 +1,6 @@
 {
   "name": "@sixxgate/lint",
-  "version": "3.0.2",
+  "version": "3.1.0",
   "packageManager": "yarn@1.22.22",
   "main": "dist/index.cjs",
   "author": "Matthew Holder <sixxgate@hotmail.com>",
@@ -18,9 +18,11 @@
     "lint": "eslint .",
     "fix": "eslint --fix .",
     "prepare": "husky install",
-    "prepack": "npm run build"
+    "prepack": "yarn run rebuild"
   },
   "files": [
+    "README.md",
+    "LICENSE",
     "dist/**/*.d.ts",
     "dist/**/*.d.cts",
     "dist/**/*.d.mts",
