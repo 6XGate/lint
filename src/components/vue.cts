@@ -227,6 +227,17 @@ const VueComponent = defineComponent('vue', ({ getComponent }) => {
     return config
   }
 
+  function postConfigure(config: Linter.Config) {
+    config.rules = {
+      ...config.rules,
+      // Does not play well with `exactOptionalPropertyTypes`,
+      // at this time.
+      'vue/require-default-prop': 'off'
+    }
+
+    return config
+  }
+
   function useMarkupLang(lang: MarkupLang) {
     settings.markup = MarkupLang.parse(lang)
   }
@@ -247,6 +258,7 @@ const VueComponent = defineComponent('vue', ({ getComponent }) => {
     getPriorComponents,
     preConfigure,
     configure,
+    postConfigure,
     getStandardVueRules,
     useMarkupLang,
     useScriptLang,
