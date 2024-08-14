@@ -1,6 +1,6 @@
 {
   "name": "@sixxgate/lint",
-  "version": "3.2.0",
+  "version": "3.2.1",
   "packageManager": "yarn@1.22.22",
   "main": "dist/index.cjs",
   "author": "Matthew Holder <sixxgate@hotmail.com>",
@@ -39,10 +39,12 @@
     "dist/**/*.js.map",
     "dist/**/*.cjs.map",
     "dist/**/*.mjs.map",
+    "prettier.config.d.cts",
     "prettier.config.cjs"
   ],
   "peerDependencies": {
-    "eslint": "^8.52.0"
+    "eslint": "^8.52.0",
+    "prettier": "^3.3.3"
   },
   "devDependencies": {
     "@tsconfig/node18": "^18.2.4",
