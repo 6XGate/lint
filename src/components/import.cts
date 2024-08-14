@@ -67,7 +67,7 @@ const ImportComponent = Object.assign(
     function getDependencies() {
       return [
         'eslint-plugin-import',
-        ...Array.from(settings.resolvers).map(resolver => `eslint-import-resolver-${resolver}`)
+        ...Array.from(settings.resolvers).map((resolver) => `eslint-import-resolver-${resolver}`)
       ]
     }
 
@@ -87,7 +87,9 @@ const ImportComponent = Object.assign(
         ),
         'import/extensions': Array.from(settings.extensions),
         'import/external-module-folders': Array.from(settings.externalModuleFolders),
-        'import/resolver': Object.fromEntries(Array.from(settings.resolvers).map(resolver => [resolver, true] as const))
+        'import/resolver': Object.fromEntries(
+          Array.from(settings.resolvers).map((resolver) => [resolver, true] as const)
+        )
       }
 
       config.rules = {

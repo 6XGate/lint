@@ -55,7 +55,6 @@ function getStandardJavaScriptRules(): Linter.RulesRecord {
     'no-alert': 'error',
     'no-array-constructor': 'error',
     'no-caller': 'error',
-    'no-confusing-arrow': 'error',
     'no-div-regex': 'error',
     'no-else-return': 'warn',
     'no-empty-function': 'warn',
@@ -137,7 +136,7 @@ const JavaScriptComponent = Object.assign(
       // But, include it anyways to keep thing normal in case
       // this program moves to flat configuration or can
       // eventually use dynamic imports.
-      return ['eslint', '@eslint/eslintrc', '@eslint/js']
+      return ['eslint']
     }
 
     function getPrecedingComponents() {
@@ -145,7 +144,7 @@ const JavaScriptComponent = Object.assign(
     }
 
     function preConfigure() {
-      getComponent(ExtendComponent).extend('eslint:recommended')
+      getComponent(ExtendComponent).extend({ before: 'eslint:recommended', after: 'prettier' })
 
       const theImportComponent = getComponent(ImportComponent)
       theImportComponent.enableResolver('node')

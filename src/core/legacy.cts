@@ -38,7 +38,7 @@ const useLegacyConfig = shared(() => {
 
     return legacy
       .extends(...names)
-      .map(config => (config.rules != null ? shake(config.rules) : null))
+      .map((config) => (config.rules != null ? shake(config.rules) : null))
       .reduce<Linter.RulesRecord>((prev, rules) => ({ ...prev, ...rules }), {})
   }
 

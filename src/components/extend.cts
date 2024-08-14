@@ -9,7 +9,7 @@ const BaseSpec = z.union([
   z
     .string()
     .min(1)
-    .transform(value => [value]),
+    .transform((value) => [value]),
   z.array(z.string().min(1)).transform(uniq)
 ])
 
@@ -20,7 +20,7 @@ const ExtendOptions = z
   })
   .partial()
 
-const Options = z.union([BaseSpec.transform(before => ExtendOptions.parse({ before })), ExtendOptions]).default({})
+const Options = z.union([BaseSpec.transform((before) => ExtendOptions.parse({ before })), ExtendOptions]).default({})
 
 type Options = z.input<typeof Options>
 

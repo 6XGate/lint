@@ -40,6 +40,10 @@ export function useDefineConfigApi(isolate: Isolate) {
     theExtendComponent.extend(base, ...more)
   }
 
+  function usePrettier(...args: ArgsFromFactory<typeof PrettierComponent>) {
+    thePrettierComponent.enable(...args)
+  }
+
   function useNode(...args: ArgsFromFactory<typeof NodeComponent>) {
     theNodeComponent.enable(...args)
   }
@@ -56,7 +60,6 @@ export function useDefineConfigApi(isolate: Isolate) {
   theJavaScriptComponent.enable()
   theImportComponent.enable()
   thePromiseComponent.enable()
-  thePrettierComponent.enable()
 
   return {
     // Extending lint
@@ -67,6 +70,7 @@ export function useDefineConfigApi(isolate: Isolate) {
     findPackageManager,
     // Components
     extend,
+    usePrettier,
     useNode,
     useTypeScript,
     useVue
@@ -108,12 +112,12 @@ export function defineConfig(callback: (api: DefineConfigApi) => Linter.Config) 
   for (const component of components) {
     if (component.enabled) {
       logger.debug(`Checking dependencies for "${component.name}"`)
-      dependencies.push(...component.dependencies.filter(dependency => !pm.has(dependency)))
+      dependencies.push(...component.dependencies.filter((dependency) => !pm.has(dependency)))
     }
   }
 
   if (dependencies.length > 0) {
-    logger.info(`Installing dependencies ${dependencies.map(dependency => `"${dependency}"`).join(', ')}`)
+    logger.info(`Installing dependencies ${dependencies.map((dependency) => `"${dependency}"`).join(', ')}`)
     pm.add(dependencies)
 
     logger.warn('You must re-run ESLint to use newly installed dependencies.')
