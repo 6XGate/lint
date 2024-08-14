@@ -7,15 +7,15 @@ import type { ValuesOf } from '../helpers/types.cjs'
 import type { ChalkFunction } from 'chalk'
 import type { ConditionalKeys } from 'type-fest'
 
-const kDebugNamespace = 'lint-config'
-const kLevels = Object.seal(['debug', 'info', 'log', 'warn', 'error'] as const)
+export const kDebugNamespace = 'lint-config'
+export const kLevels = Object.seal(['debug', 'info', 'log', 'warn', 'error'] as const)
 
-type Levels = ValuesOf<typeof kLevels>
-type LineFormatter = (message?: unknown, ...optionalParams: unknown[]) => [unknown?, ...unknown[]]
-type LineWriter = (message?: unknown, ...optionalParams: unknown[]) => void
-type ConsoleWriter = (typeof console)[Levels]
+export type Levels = ValuesOf<typeof kLevels>
+export type LineFormatter = (message?: unknown, ...optionalParams: unknown[]) => [unknown?, ...unknown[]]
+export type LineWriter = (message?: unknown, ...optionalParams: unknown[]) => void
+export type ConsoleWriter = (typeof console)[Levels]
 
-interface LevelSettings {
+export interface LevelSettings {
   level: Levels
   style: ChalkFunction
   hideLevel?: boolean | undefined

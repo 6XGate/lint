@@ -1,6 +1,9 @@
-# Quick and Easy Opinionated ESLint Setup
+# Quick and Easy Opinionated Linting Setup
+
+## ESLint
 
 Provides a strict, quick, and easy to setup opinionated ESLint rule set for;
+
 - JavaScript
 - TypeScript
 - Node.js
@@ -31,16 +34,29 @@ module.exports = defineConfig(({ useNode, useTypeScript }) => {
 ```
 
 Support function from `defineConfig`.
+
+- `usePrettier`
 - `useNode`
 - `useTypeScript`
 - `useVue`
 
 JavaScript is always supported by default.
 
-The following ESLint plug-ins are:
+The following ESLint plug-ins are used:
+
 - `prettier`
 - `n`
 - `import`
 - `promise`
 - `typescript`
 - `vue`
+
+## Prettier
+
+Provides a compatible opinionated Prettier configuration to run Prettier separately.
+
+Simply add a `prettier.config.cjs` with the following contents:
+
+```js
+module.exports = require('@sixxgate/lint/prettier.config.cjs')
+```

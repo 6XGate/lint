@@ -1,3 +1,4 @@
+import baseConfig from '../../prettier.config.cjs'
 import { defineComponent } from '../core/components.cjs'
 import useLegacyConfig from '../core/legacy.cjs'
 import ExtendComponent from './extend.cjs'
@@ -9,13 +10,7 @@ function getStandardPrettierRules(): Linter.RulesRecord {
       'warn',
       {
         editorconfig: true,
-        semi: false,
-        singleQuote: true,
-        quoteProps: 'consistent',
-        trailingComma: 'none',
-        bracketSameLine: true,
-        arrowParens: 'avoid',
-        printWidth: 120
+        ...baseConfig
       }
     ]
   }
@@ -38,7 +33,7 @@ const PrettierComponent = Object.assign(
     }
 
     function preConfigure() {
-      getComponent(ExtendComponent).extend({ after: ['plugin:prettier/recommended', 'prettier'] })
+      getComponent(ExtendComponent).extend({ after: ['plugin:prettier/recommended'] })
     }
 
     function configure(config: Linter.Config) {

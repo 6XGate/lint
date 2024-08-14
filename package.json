@@ -1,6 +1,6 @@
 {
   "name": "@sixxgate/lint",
-  "version": "3.1.4",
+  "version": "3.2.0",
   "packageManager": "yarn@1.22.22",
   "main": "dist/index.cjs",
   "author": "Matthew Holder <sixxgate@hotmail.com>",
@@ -13,14 +13,18 @@
     "access": "public"
   },
   "scripts": {
-    "rebuild": "run-s clean build",
-    "build": "run-p compile copy",
+    "rebuild": "run-s -l clean build",
+    "build": "run-p -l compile copy",
     "compile": "tsc",
     "copy": "cpy 'src/**/*.{js,jsx,cjs,mjs,d.ts,d.tsx,d.cts,d.mts}' dist/",
     "clean": "del dist/",
-    "lint": "eslint .",
-    "fix": "eslint --fix .",
-    "prepare": "husky install",
+    "lint:eslint": "eslint .",
+    "lint:prettier": "prettier -cu .",
+    "lint": "run-p -l 'lint:*'",
+    "fix:eslint": "eslint --fix .",
+    "fix:prettier": "prettier -cu --write .",
+    "fix": "run-s -l 'fix:*'",
+    "prepare": "husky",
     "prepack": "yarn run rebuild"
   },
   "files": [
@@ -34,18 +38,20 @@
     "dist/**/*.mjs",
     "dist/**/*.js.map",
     "dist/**/*.cjs.map",
-    "dist/**/*.mjs.map"
+    "dist/**/*.mjs.map",
+    "prettier.config.cjs"
   ],
   "peerDependencies": {
     "eslint": "^8.52.0"
   },
   "devDependencies": {
     "@tsconfig/node18": "^18.2.4",
+    "@tsconfig/strictest": "^2.0.5",
     "@types/debug": "^4.1.12",
     "@types/lodash": "^4.17.7",
-    "@types/node": "18.19.43",
-    "@typescript-eslint/eslint-plugin": "^7.18.0",
-    "@typescript-eslint/parser": "^7.18.0",
+    "@types/node": "18.19.44",
+    "@typescript-eslint/eslint-plugin": "^8.1.0",
+    "@typescript-eslint/parser": "^8.1.0",
     "@vue/eslint-config-prettier": "^9.0.0",
     "@vue/eslint-config-typescript": "^13.0.0",
     "cpy-cli": "^5.0.0",
@@ -54,12 +60,12 @@
     "eslint-import-resolver-node": "^0.3.9",
     "eslint-import-resolver-typescript": "^3.6.1",
     "eslint-plugin-import": "^2.29.1",
-    "eslint-plugin-n": "^16.6.2",
+    "eslint-plugin-n": "^17.10.2",
     "eslint-plugin-prettier": "^5.2.1",
-    "eslint-plugin-promise": "^6.6.0",
+    "eslint-plugin-promise": "^7.1.0",
     "eslint-plugin-vue": "^9.27.0",
-    "husky": "^8.0.3",
-    "npm-check-updates": "^17.0.1",
+    "husky": "^9.1.4",
+    "npm-check-updates": "^17.0.6",
     "npm-run-all2": "^6.2.2",
     "prettier": "^3.3.3",
     "typescript": "^5.5.4",
@@ -80,7 +86,7 @@
     "radash": "^12.1.0",
     "read-pkg": "^5.2.0",
     "tslib": "^2.6.3",
-    "type-fest": "^4.23.0",
+    "type-fest": "^4.24.0",
     "zod": "^3.23.8"
   }
 }
