@@ -36,7 +36,7 @@ const ExtendComponent = defineComponent('extend', () => {
     return config
   }
 
-  function extendConfigs(options?: Options | undefined, ...bases: string[]) {
+  function extendConfigs(options?: Options, ...bases: string[]) {
     const parsed = Options.parse(options)
     if (parsed.before != null) {
       for (const base of parsed.before) {

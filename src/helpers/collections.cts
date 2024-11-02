@@ -45,7 +45,7 @@ type ReducePredicate<T, U> = (previousValue: U, currentValue: T, index: number, 
 export function reduceIterable<T>(iterable: Iterable<T>, predicate: ReducePredicate<T, T>): T
 export function reduceIterable<T>(iterable: Iterable<T>, predicate: ReducePredicate<T, T>, intial: T): T
 export function reduceIterable<T, U>(iterable: Iterable<T>, predicate: ReducePredicate<T, U>, initial: U): U
-export function reduceIterable<T, U>(iterable: Iterable<T>, predicate: ReducePredicate<T, U>, initial?: U | undefined) {
+export function reduceIterable<T, U>(iterable: Iterable<T>, predicate: ReducePredicate<T, U>, initial?: U) {
   // eslint-disable-next-line @typescript-eslint/prefer-reduce-type-parameter -- Will not compile otherwise.
   return Array.from(iterable).reduce(predicate, initial as U)
 }

@@ -2,13 +2,14 @@
   "extends": ["@tsconfig/strictest", "@tsconfig/node18"],
   "include": ["src/**/*.ts", "src/**/*.cts", "src/**/*.mts", "prettier.config.d.cts"],
   "compilerOptions": {
-    "incremental": true,
+    "checkJs": true,
     "declaration": true,
-    "sourceMap": true,
-    "outDir": "./dist",
     "importHelpers": true,
+    "incremental": true,
+    "isolatedModules": true,
     "noEmitHelpers": true,
     "noEmitOnError": true,
-    "isolatedModules": true
+    "outDir": "./dist",
+    "sourceMap": true
   }
 }

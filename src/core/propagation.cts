@@ -1,7 +1,7 @@
 import useLegacyConfig from './legacy.cjs'
 import type { Linter } from 'eslint'
 
-export function isRuleOff(settings?: Linter.RuleEntry | null | undefined) {
+export function isRuleOff(settings?: Linter.RuleEntry | null) {
   return (
     settings == null ||
     settings === 0 ||
@@ -10,7 +10,7 @@ export function isRuleOff(settings?: Linter.RuleEntry | null | undefined) {
   )
 }
 
-export function isRuleOn(settings?: Linter.RuleEntry | null | undefined) {
+export function isRuleOn(settings?: Linter.RuleEntry | null) {
   return !isRuleOff(settings)
 }
 

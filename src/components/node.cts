@@ -28,7 +28,7 @@ const NodeComponent = defineComponent('node', ({ getComponent }) => {
     }
   }
 
-  function enable(options?: Options | undefined) {
+  function enable(options?: Options) {
     getComponent(ExtendComponent).enable()
 
     merge(settings, Options.parse(options))

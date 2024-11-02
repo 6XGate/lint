@@ -50,22 +50,25 @@ export type Options = z.input<typeof Options>
 /** Vue options schema. */
 export const Options = Settings.partial().default({})
 
-type BlockLanguageOptions<Blocks extends string = string> = {
-  [Block in Blocks]: {
+type BlockLanguageOptions<Blocks extends string = string> = Record<
+  Blocks,
+  {
     lang: string | string[]
     allowNoLang?: boolean
   }
-}
+>
 
 const VueComponent = defineComponent('vue', ({ getComponent }) => {
   const settings = Settings.parse({})
 
   function getMarkupLangOptions(): BlockLanguageOptions<'template'> {
-    switch (settings.markup) {
-      case 'html':
-      default:
-        return { template: { lang: 'html', allowNoLang: true } }
-    }
+    // When adding support for other languages, the switch will be used.
+    return { template: { lang: 'html', allowNoLang: true } }
+    // switch (settings.markup) {
+    //   case 'html':
+    //   default:
+    //     return { template: { lang: 'html', allowNoLang: true } }
+    // }
   }
 
   function getScriptLangOptions(): BlockLanguageOptions<'script'> {
@@ -163,7 +166,7 @@ const VueComponent = defineComponent('vue', ({ getComponent }) => {
     }
   }
 
-  function enable(options?: Options | undefined) {
+  function enable(options?: Options) {
     getComponent(ExtendComponent).enable()
 
     const theTypeScriptComponent = getComponent(TypeScriptComponent)

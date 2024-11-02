@@ -55,7 +55,7 @@ const useConsole = shared(() =>
   })
 )
 
-const useLogger = (writer?: LineWriter | undefined) => {
+const useLogger = (writer?: LineWriter) => {
   const stdio = useConsole()
 
   return Object.freeze({
