@@ -40,7 +40,9 @@ function getStandardTypeScriptRules(): Linter.RulesRecord {
         allowBoolean: true,
         allowNullish: true,
         allowNumber: true,
-        allowRegExp: true
+        allowRegExp: true,
+        // Allow fixing issues in generics.
+        allowNever: true
       }
     ],
     // The default are too strict and not useful.
@@ -51,20 +53,20 @@ function getStandardTypeScriptRules(): Linter.RulesRecord {
         classes: false,
         enums: false,
         variables: false,
-        typedefs: false // Only the TypeScript rule has this option.
+        // Only the TypeScript rule has this option.
+        typedefs: false
       }
     ],
     // Very strict compared to the default options.
     '@typescript-eslint/strict-boolean-expressions': [
       'error',
       {
-        allowString: false,
+        // Disallow some common uses that can cause bugs.
         allowNumber: false,
-        allowNullableObject: false,
-        allowNullableBoolean: false,
-        allowNullableString: false,
         allowNullableNumber: false,
-        allowAny: false
+        // Common uses that make for cleaner code.
+        allowNullableBoolean: false,
+        allowNullableString: false
       }
     ],
     // Causes too many issues with callback parameters,
