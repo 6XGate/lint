@@ -65,8 +65,8 @@ function getStandardTypeScriptRules(): Linter.RulesRecord {
         allowNumber: false,
         allowNullableNumber: false,
         // Common uses that make for cleaner code.
-        allowNullableBoolean: false,
-        allowNullableString: false
+        allowNullableBoolean: true,
+        allowNullableString: true
       }
     ],
     // Causes too many issues with callback parameters,
