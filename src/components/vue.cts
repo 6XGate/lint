@@ -157,7 +157,7 @@ const VueComponent = defineComponent('vue', ({ getComponent }) => {
       // TODO: vue/v-for-delimiter-style
       'vue/valid-define-options': 'error',
 
-      // ## Extention rules
+      // ## Extension rules
       //
       // These extension rules do not use the same configuration as
       // the rule they are an extension of. If this changes,

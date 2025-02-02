@@ -1,4 +1,4 @@
-import { uniq } from 'lodash'
+import { unique } from 'radash'
 import { z } from 'zod'
 import { defineComponent } from '../core/components.cjs'
 import { asArray } from '../helpers/collections.cjs'
@@ -10,7 +10,7 @@ const BaseSpec = z.union([
     .string()
     .min(1)
     .transform((value) => [value]),
-  z.array(z.string().min(1)).transform(uniq)
+  z.array(z.string().min(1)).transform((v) => unique(v))
 ])
 
 const ExtendOptions = z

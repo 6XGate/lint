@@ -5,13 +5,13 @@ import readPkg from 'read-pkg'
 import type { Isolate } from './isolate.cjs'
 
 export interface PackageManagerBindings {
-  /** Known package manager exeuctables */
+  /** Known package manager executables. */
   executables: [string, ...string[]]
   /** Known lock file names. */
   lockFileNames: [string, ...string[]]
   /** Extra custom detection logic. */
   detect?: () => boolean
-  /** Indicates whether the package is installed */
+  /** Indicates whether the package is installed. */
   has?: (name: string) => boolean
   /** Installs a package. */
   add: (names: string[]) => void

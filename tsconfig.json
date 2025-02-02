@@ -1,5 +1,5 @@
 {
-  "extends": ["@tsconfig/strictest", "@tsconfig/node18"],
+  "extends": ["@tsconfig/strictest", "@tsconfig/node20"],
   "include": ["src/**/*.ts", "src/**/*.cts", "src/**/*.mts", "prettier.config.d.cts"],
   "compilerOptions": {
     "checkJs": true,

@@ -1,4 +1,4 @@
-import { uniq } from 'lodash'
+import { unique } from 'radash'
 
 export function defineDependencies(dependencies: Record<string, boolean | (() => boolean)>) {
   const list = new Array<string>()
@@ -11,5 +11,5 @@ export function defineDependencies(dependencies: Record<string, boolean | (() =>
     }
   }
 
-  return uniq(list)
+  return unique(list)
 }

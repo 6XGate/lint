@@ -24,7 +24,7 @@ module.exports = defineConfig(({ useNode, useTypeScript }) => {
   useNode()
   useTypeScript('./tsconfig.json')
 
-  // Additions and everrides for ESLint.
+  // Additions and overrides for ESLint.
   return {
     root: true,
     env: { es2021: true },

@@ -1,13 +1,13 @@
 {
   "name": "@sixxgate/lint",
-  "version": "3.3.2",
+  "version": "4.0.0",
   "packageManager": "yarn@1.22.22",
   "main": "dist/index.cjs",
   "author": "Matthew Holder <sixxgate@hotmail.com>",
   "license": "MIT",
   "description": "Opinionated ESLint configuration builder inspired Standard",
   "engines": {
-    "node": ">=18"
+    "node": ">=20"
   },
   "publishConfig": {
     "access": "public"
@@ -26,7 +26,7 @@
     "fix:prettier": "prettier -cu --write .",
     "fix": "run-s -l typecheck 'fix:*'",
     "prepare": "husky",
-    "prepack": "yarn run rebuild"
+    "prepack": "$npm_execpath run rebuild"
   },
   "files": [
     "README.md",
@@ -44,44 +44,49 @@
     "prettier.config.cjs"
   ],
   "peerDependencies": {
-    "eslint": "^8.52.0",
-    "prettier": "^3.3.3"
+    "eslint": "^8.57.1",
+    "prettier": "*"
+  },
+  "peerDependenciesMeta": {
+    "prettier": {
+      "optional": true
+    }
   },
   "devDependencies": {
-    "@tsconfig/node18": "^18.2.4",
+    "@tsconfig/node20": "^20.1.4",
     "@tsconfig/strictest": "^2.0.5",
     "@types/debug": "^4.1.12",
     "@types/eslint__eslintrc": "^2.1.2",
-    "@types/lodash": "^4.17.13",
-    "@types/node": "18.19.63",
-    "@typescript-eslint/eslint-plugin": "^8.12.2",
-    "@typescript-eslint/parser": "^8.12.2",
+    "@types/lodash": "^4.17.15",
+    "@types/node": "20.17.16",
+    "@typescript-eslint/eslint-plugin": "^8.22.0",
+    "@typescript-eslint/parser": "^8.22.0",
     "@vue/eslint-config-prettier": "^9.0.0",
     "@vue/eslint-config-typescript": "^13.0.0",
     "cpy-cli": "^5.0.0",
     "del-cli": "^5.1.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-import-resolver-node": "^0.3.9",
-    "eslint-import-resolver-typescript": "^3.6.3",
+    "eslint-import-resolver-typescript": "^3.7.0",
     "eslint-plugin-import": "^2.31.0",
-    "eslint-plugin-n": "^17.12.0",
-    "eslint-plugin-prettier": "^5.2.1",
-    "eslint-plugin-promise": "^7.1.0",
-    "eslint-plugin-vue": "^9.30.0",
-    "husky": "^9.1.6",
-    "npm-check-updates": "^17.1.9",
-    "npm-run-all2": "^7.0.1",
-    "prettier": "^3.3.3",
-    "typescript": "^5.6.3",
+    "eslint-plugin-n": "^17.15.1",
+    "eslint-plugin-prettier": "^5.2.3",
+    "eslint-plugin-promise": "^7.2.1",
+    "eslint-plugin-vue": "^9.32.0",
+    "husky": "^9.1.7",
+    "npm-check-updates": "^17.1.14",
+    "npm-run-all2": "^7.0.2",
+    "prettier": "^3.4.2",
+    "typescript": "^5.7.3",
     "typescript-eslint-parser-for-extra-files": "^0.7.0",
     "vue-eslint-parser": "^9.4.3"
   },
   "dependencies": {
-    "@eslint/eslintrc": "^3.1.0",
+    "@eslint/eslintrc": "^3.2.0",
     "@eslint/js": "^8.57.1",
     "@types/eslint": "^8.56.12",
     "chalk": "^4.1.2",
-    "debug": "^4.3.7",
+    "debug": "^4.4.0",
     "eslint": "^8.57.1",
     "execa": "^5.1.1",
     "is-interactive": "^1.0.0",
@@ -90,7 +95,7 @@
     "radash": "^12.1.0",
     "read-pkg": "^5.2.0",
     "tslib": "^2.8.1",
-    "type-fest": "^4.26.1",
-    "zod": "^3.23.8"
+    "type-fest": "^4.33.0",
+    "zod": "^3.24.1"
   }
 }

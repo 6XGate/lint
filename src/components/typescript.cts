@@ -1,5 +1,5 @@
 /* eslint-disable import/no-cycle -- Safe use. */
-import { uniq } from 'lodash'
+import { unique } from 'radash'
 import { z } from 'zod'
 import { defineComponent } from '../core/components.cjs'
 import { propagate } from '../core/propagation.cjs'
@@ -70,9 +70,9 @@ function getStandardTypeScriptRules(): Linter.RulesRecord {
       }
     ],
     // Causes too many issues with callback parameters,
-    // so this will be a rare diviation from strict.
+    // so this will be a rare deviation from strict.
     '@typescript-eslint/unified-signatures': 'off',
-    // Prevents really common usecases for generics.
+    // Prevents really common use-cases for generics.
     '@typescript-eslint/no-unnecessary-type-parameters': 'off',
     // Handled by and conflicts with prettier.
     '@typescript-eslint/no-extra-semi': 'off'
@@ -98,7 +98,7 @@ const TypeScriptComponent = Object.assign(
     }
 
     function getDependencies() {
-      return uniq(['@typescript-eslint/eslint-plugin', '@typescript-eslint/parser', settings.parser])
+      return unique(['@typescript-eslint/eslint-plugin', '@typescript-eslint/parser', settings.parser])
     }
 
     function getPrecedingComponents() {
@@ -163,7 +163,7 @@ const TypeScriptComponent = Object.assign(
         // are some situations where any is required no if-
         // and-or-buts. Specifically when dealing
         // with rest arguments in generic
-        // constratints.
+        // constraints.
         '@typescript-eslint/no-explicit-any': [
           'warn',
           {
