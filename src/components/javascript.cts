@@ -43,6 +43,7 @@ function getStandardJavaScriptRules(): Linter.RulesRecord {
     'arrow-body-style': 'error',
     'block-scoped-var': 'error',
     'consistent-return': 'error',
+    'curly': ['error', 'multi-line'],
     'default-case': 'error',
     'default-case-last': 'error',
     'default-param-last': 'error',

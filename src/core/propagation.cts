@@ -29,7 +29,7 @@ export function propagate(rules: Linter.RulesRecord, excludes: string[], pluginN
   for (const [name, settings] of Object.entries(rules)) {
     if (Reflect.has(plugin.rules, name) && isRuleOn(settings)) {
       result[name] = 'off'
-      // Activate the extended rule if not exlcuded; we still
+      // Activate the extended rule if not excluded; we still
       // want the base ESLint rule off regardless.
       result[`${pluginName}/${name}`] = !excludes.includes(name) ? settings : 'off'
     }
